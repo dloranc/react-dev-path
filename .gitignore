@@ -13,6 +13,7 @@
 
 # IDEs
 *.code-workspace
+.vscode
 
 # misc
 .DS_Store
