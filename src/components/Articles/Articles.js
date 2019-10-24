@@ -1,23 +1,24 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchArticles, setArticles } from './../../store/articles/actionCreators';
+import { getTitles } from './../../store/articles/selectors';
 
-export const Articles = ({ articles, setArticles }) => {
+export const Articles = ({ titles, setArticles }) => {
   useEffect(() => {
     fetchArticles().then(response => setArticles(response));
   }, [setArticles]);
 
   return (
     <div className="articles">
-      {articles.map(article => (
-        <div className="article" key={article.id}>{article.title}</div>
+      {titles.map(title => (
+        <div className="article" key={title}>{title}</div>
       ))}
     </div>
   )
 };
 
 const mapStateToProps = (state) => ({
-  articles: state.articles,
+  titles: getTitles(state.articles),
 });
 
 const mapDispatchToProps = {

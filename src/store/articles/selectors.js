@@ -1,1 +1,1 @@
-export const getProductsFromCart = state => state.cart;
+export const getTitles = state => state.map(article => article.title);
