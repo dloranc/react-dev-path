@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchArticles, setArticles } from './../../store/articles/actionCreators';
 
-export const Articles = ({ articles, setArticles }) => {
+export const Articles = ({ articles, setArticles, fetchArticles }) => {
   useEffect(() => {
-    fetchArticles().then(response => setArticles(response));
-  }, [setArticles]);
+    fetchArticles();
+  }, [fetchArticles, setArticles]);
 
   return (
     <div className="articles">

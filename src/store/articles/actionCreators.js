@@ -5,8 +5,10 @@ import { normalize, schema } from 'normalizr';
 export const addArticle = createAction('articles/ADD');
 export const setArticles = createAction('articles/SET');
 
-export const fetchArticles = () => axios.get('http://localhost:4000/articles')
-  .then(response => {
+export const fetchArticles = () => {
+  return async dispatch => {
+    const response = await axios.get('http://localhost:4000/articles');
+
     const { data } = response;
 
     const tag = new schema.Entity("tags", {});
@@ -20,5 +22,6 @@ export const fetchArticles = () => axios.get('http://localhost:4000/articles')
       result => normalizedData.entities.articles[result]
     );
 
-    return articles;
-  });
+    dispatch(setArticles(articles));
+  }
+}
