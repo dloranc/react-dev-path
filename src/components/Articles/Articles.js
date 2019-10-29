@@ -1,15 +1,24 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchArticles, setArticles } from './../../store/articles/actionCreators';
+import { CancelToken } from 'axios';
+import { fetchArticles } from './../../store/articles/actionCreators';
+import { setShow } from './../../store/show/actionCreators';
 
-export const Articles = ({ articles, setArticles, fetchArticles }) => {
+window.source = CancelToken.source();
+
+export const Articles = ({ show, articles, setShow, fetchArticles }) => {
   useEffect(() => {
     fetchArticles();
-  }, [fetchArticles, setArticles]);
+
+    setTimeout(() => {
+      setShow(false);
+      window.source.cancel('Request aborted');
+    }, 1)
+  }, [fetchArticles, setShow]);
 
   return (
     <div className="articles">
-      {articles.map(article => (
+      {show && articles.map(article => (
         <div className="article" key={article.id}>{article.title}</div>
       ))}
     </div>
@@ -17,12 +26,13 @@ export const Articles = ({ articles, setArticles, fetchArticles }) => {
 };
 
 const mapStateToProps = (state) => ({
+  show: state.show,
   articles: state.articles,
 });
 
 const mapDispatchToProps = {
+  setShow,
   fetchArticles,
-  setArticles,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Articles);
