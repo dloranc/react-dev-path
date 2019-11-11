@@ -1,0 +1,31 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "Dagon",
+      "description": "Dagon is a deity who presides over the Deep Ones, an amphibious humanoid race indigenous to Earth's oceans. He is first introduced in Lovecraft's short story \"Dagon,\" and is mentioned extensively throughout the mythos. Also known as Father Dagon, he is a Great Old One and the consort of Mother Hydra.",
+      "tags": [
+        { "id": 1, "name": "old ones" },
+        { "id": 2, "name": "short story" }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Azathoth",
+      "description": "Azathoth, also known as the Blind Idiot God, the Daemon Sultan, and the Nuclear Chaos, is the ultimate antagonist in the Cthulhu Mythos, created by the late horror fantasy writer H. P. ... He is a cosmic and boundless deity of colossal proportion, and the great and all-powerful ruler",
+      "tags": [
+        { "id": 1, "name": "old ones" },
+        { "id": 3, "name": "novel" }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "At the Mountains of Madness",
+      "description": "At the Mountains of Madness is a science fiction-horror novella by American author H. P. Lovecraft, written in February/March 1931 and rejected that year by Weird Tales editor Farnsworth Wright on the grounds of its length.",
+      "tags": [
+        { "id": 4, "name": "insanity" },
+        { "id": 3, "name": "novel" }
+      ]
+    }
+  ]
+}
