@@ -21,7 +21,11 @@ export const fetchUser = () => dispatch =>
       ]).then(values => {
         dispatch(setComments(values[0].data));
         dispatch(setPosts(values[1].data));
+      }).catch(error => {
+        console.log(error);
       });
 
       dispatch(setUser(user));
+    }).catch(error => {
+      console.log(error);
     });
